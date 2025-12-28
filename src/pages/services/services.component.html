@@ -1,0 +1,19 @@
+
+<div class="bg-gray-50 dark:bg-gray-900 py-16">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">My Services</h1>
+      <p class="text-gray-600 dark:text-gray-400 mt-2">Solutions tailored for your business needs.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (service of services; track service.title) {
+        <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-cyan-500/50 dark:hover:border-cyan-400/50 hover:bg-gray-100/50 dark:hover:bg-gray-800 transition-all duration-300 flex flex-col items-center text-center">
+          <div class="text-cyan-500 dark:text-cyan-400 mb-4" [innerHTML]="service.icon"></div>
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">{{ service.title }}</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ service.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

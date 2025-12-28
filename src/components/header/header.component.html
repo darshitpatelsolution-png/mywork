@@ -1,0 +1,65 @@
+
+<header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a routerLink="/" class="text-2xl font-bold text-gray-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300" (click)="closeMenu()">
+      Darshit Patel Solution
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-6 items-center">
+      <a routerLink="/" routerLinkActive="text-cyan-600 dark:text-cyan-400" [routerLinkActiveOptions]="{exact: true}" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Home</a>
+      <a routerLink="/about" routerLinkActive="text-cyan-600 dark:text-cyan-400" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">About</a>
+      <a routerLink="/services" routerLinkActive="text-cyan-600 dark:text-cyan-400" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Services</a>
+      <a routerLink="/applications" routerLinkActive="text-cyan-600 dark:text-cyan-400" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Applications</a>
+      <!-- <button (click)="themeService.toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        @if (themeService.theme() === 'dark') {
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        } @else {
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        }
+      </button> -->
+      <a routerLink="/contact" class="relative inline-block p-0.5 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 transition-all duration-300 group">
+        <span class="block bg-white dark:bg-gray-900 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 transition-colors duration-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-md">
+          Contact me 
+        </span>
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="text-gray-900 dark:text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          @if (!isMenuOpen()) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          }
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  @if (isMenuOpen()) {
+    <div class="md:hidden bg-white/95 dark:bg-gray-900/95">
+      <nav class="flex flex-col items-center space-y-4 py-4">
+        <a routerLink="/" routerLinkActive="text-cyan-600 dark:text-cyan-400" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Home</a>
+        <a routerLink="/about" routerLinkActive="text-cyan-600 dark:text-cyan-400" (click)="closeMenu()" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">About</a>
+        <a routerLink="/services" routerLinkActive="text-cyan-600 dark:text-cyan-400" (click)="closeMenu()" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Services</a>
+        <a routerLink="/applications" routerLinkActive="text-cyan-600 dark:text-cyan-400" (click)="closeMenu()" class="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-300">Applications</a>
+        <a routerLink="/contact" (click)="closeMenu()" class="relative inline-block p-0.5 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500">
+          <span class="block bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-md">
+            Hire Me
+          </span>
+        </a>
+         <button (click)="themeService.toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+          @if (themeService.theme() === 'dark') {
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          } @else {
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          }
+        </button>
+      </nav>
+    </div>
+  }
+</header>

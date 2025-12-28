@@ -1,0 +1,80 @@
+
+<div class="bg-white dark:bg-gray-900 py-16">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Let's Build Something Together</h1>
+      <p class="text-gray-600 dark:text-gray-400 mt-2">Ready to start your project? Let's talk.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Freelancing Process & Contact Info -->
+      <div>
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Freelancing & Hire Me</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-6">
+          I provide a straightforward and transparent process for all custom development projects. Here’s how we can work together:
+        </p>
+        <ol class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <div class="bg-gradient-to-br from-cyan-500 to-teal-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Requirement Analysis</h3>
+              <p class="text-gray-600 dark:text-gray-400">We start with a detailed discussion to understand your project goals, features, and target audience.</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="bg-gradient-to-br from-cyan-500 to-teal-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Development & Delivery</h3>
+              <p class="text-gray-600 dark:text-gray-400">I build your application using best practices, providing regular updates. The final product is delivered after rigorous testing.</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="bg-gradient-to-br from-cyan-500 to-teal-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Support & Maintenance</h3>
+              <p class="text-gray-600 dark:text-gray-400">After launch, I offer ongoing support to ensure your application remains secure and up-to-date.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
+           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact Details</h3>
+           <p class="text-gray-700 dark:text-gray-300 mb-2"><strong>Email:</strong> darshitpatelsolution@gmail.com</p>
+           <p class="text-gray-700 dark:text-gray-300 mb-2"><strong>WhatsApp:</strong> +91 8347402205</p>
+           <p class="text-gray-700 dark:text-gray-300"><strong>Location:</strong> Gujarat, India</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 p-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Send a Message</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Name</label>
+            <input type="text" id="name" formControlName="name" class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+            <input type="email" id="email" formControlName="email" class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+          </div>
+           <div class="mb-4">
+            <label for="phone" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Phone (Optional)</label>
+            <input type="tel" id="phone" formControlName="phone" class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Message</label>
+            <textarea id="message" formControlName="message" rows="5" class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required></textarea>
+          </div>
+          <button type="submit" [disabled]="contactForm.invalid" class="w-full bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-400 hover:to-teal-500 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300 disabled:bg-gray-400 disabled:from-gray-500 disabled:to-gray-600">
+            Send Message
+          </button>
+        </form>
+        @if (submissionStatus() === 'error' && contactForm.invalid) {
+            <div class="mt-4 p-4 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 border border-red-300 dark:border-red-700 rounded-lg">
+                Please fill out all required fields correctly.
+            </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
